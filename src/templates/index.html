@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Activity Dashboard</title>
+    <style>
+        /* Simple styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        #dashboard {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .alert {
+            background-color: #ffdddd;
+            border: 1px solid red;
+            padding: 10px;
+        }
+        .normal {
+            background-color: #ddffdd;
+            border: 1px solid green;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Network Activity Dashboard</h1>
+    <div id="dashboard">
+        <!-- Predictions and Alerts will appear here -->
+    </div>
+    
+    <script>
+        // Sample network data to send to the backend for prediction
+        const networkActivity = [
+            { feature1: 0.3, feature2: 1.2, feature3: 0.5 },
+            { feature1: 0.6, feature2: 0.9, feature3: 0.3 }
+        ];
+
+        // Send data to Flask backend using AJAX
+        function getPrediction() {
+            fetch('http://127.0.0.1:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'network_activity': networkActivity
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                updateDashboard(data.predictions);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Update the dashboard with the predictions
+        function updateDashboard(predictions) {
+            const dashboard = document.getElementById('dashboard');
+            dashboard.innerHTML = ''; // Clear existing content
+
+            predictions.forEach((prediction, index) => {
+                const alertDiv = document.createElement('div');
+                alertDiv.classList.add(prediction === 1 ? 'alert' : 'normal');
+                alertDiv.innerText = `Network Activity ${index + 1}: ${prediction === 1 ? 'Attack Detected' : 'Normal Activity'}`;
+                dashboard.appendChild(alertDiv);
+            });
+        }
+
+        // Call the prediction function periodically or on-demand
+        getPrediction();
+    </script>
+</body>
+</html>
