@@ -1,0 +1,11 @@
+*.pkl
+*.pth
+*.pt
+*.h5
+*.joblib
+/data/
+/logs/
+checkpoints/
+/src/saved_models/
+/scripts/saved_models/
+
