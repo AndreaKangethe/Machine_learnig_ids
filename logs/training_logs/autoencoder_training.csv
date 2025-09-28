@@ -1,0 +1,2 @@
+input_dim,threshold,threshold_method,architecture,training_samples,epochs_trained,final_loss,accuracy,roc_auc,pr_auc,detection_rate,false_alarm_rate,timestamp
+44,3.67636701464653,mean + 2.5 * std,44 -> 32 -> 16 -> 8 -> 16 -> 32 -> 44,118662,100,0.4344704669803895,0.976977010719342,0.9974133603290777,0.9975104681753949,0.9853704577630958,0.03141643632441178,2025-09-27 07:49:01

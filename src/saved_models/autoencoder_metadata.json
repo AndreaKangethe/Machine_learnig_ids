@@ -1,0 +1,15 @@
+{
+  "input_dim": 44,
+  "threshold": 3.67636701464653,
+  "threshold_method": "mean + 2.5 * std",
+  "architecture": "44 -> 32 -> 16 -> 8 -> 16 -> 32 -> 44",
+  "training_samples": 118662,
+  "epochs_trained": 100,
+  "final_loss": 0.4344704669803895,
+  "accuracy": 0.976977010719342,
+  "roc_auc": 0.9974133603290777,
+  "pr_auc": 0.9975104681753949,
+  "detection_rate": 0.9853704577630958,
+  "false_alarm_rate": 0.03141643632441178,
+  "timestamp": "2025-09-27 07:49:01"
+}

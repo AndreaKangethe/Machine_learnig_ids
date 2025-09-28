@@ -1,0 +1,21 @@
+{
+  "detection_rate": 0.9749369419866277,
+  "false_alarm_rate": 0.08969748254707002,
+  "precision": 0.9828859737638749,
+  "specificity": 0.91030251745293,
+  "roc_auc": 0.9901684671539451,
+  "pr_auc": 0.9980603960770642,
+  "test_samples": 29704,
+  "normal_samples_test": 4727,
+  "attack_samples_test": 24977,
+  "confusion_matrix": [
+    [
+      4303,
+      424
+    ],
+    [
+      626,
+      24351
+    ]
+  ]
+}
